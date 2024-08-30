@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -N Kmers
+#PBS -l nodes=1:ppn=20,walltime=14400:00:00
+#PBS -q fat
+#PBS -j oe
+#PBS -o /public/home/mofy/k_mer/bin/1final/1_pbsout.txt
+
+echo --------`date`--------
+
+echo "Start at:"
+date
+
+cd /public/home/mofy/k_mer/output/group/A1482_2
+
+source activate mKmer
+conda activate mKmer
+
+bash /public/home/mofy/k_mer/bin/0env/Kmercell/Kmercell.sh --kmercount kmer_counts_dumps.fa --fastq R2_extracted_duplicate.fq --topkmer 10000 --k 13 --output /public/home/mofy/k_mer/output/group/A1482_2
+
+echo "Finished at:"
+date
