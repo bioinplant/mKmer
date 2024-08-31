@@ -18,8 +18,7 @@ For mKmer (v.1.0.0), Anaconda3-2023.07-2-Linux-x86_64, R (v4.3.2) and Python (v3
 #### Pipline  ####
 For mKmer, refer to the README file in the "pipline" folder. Each step can be used individually.
 
-#### [2024-08-31] Complete installation ####
-#### The versions may not be exactly the same.  ####
+#### [2024-08-31] Complete installation (The versions may not be exactly the same.) ####
 #### Please install conda first  ####
 ```
 #mKmer
