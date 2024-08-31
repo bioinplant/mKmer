@@ -68,3 +68,7 @@ conda create -n meme
 conda activate meme
 conda install -c bioconda meme=5.0.5
 ```
+
+Sincerely thanks to the contributors of packages such as umi_tools, jellyfish, anndata, seqkit, kraken2, bracken, Matrix, reticulate, optparse, ggplot2, ggseqlogo, patchwork, tidyverse, ggbump, BiocManager, universalmotif, memes, GO.db, meme etc.    
+
+If you have some questions, please send email to mofangyu@zju.edu.cn.    
