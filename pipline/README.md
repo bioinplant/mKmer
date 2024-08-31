@@ -5,8 +5,8 @@ Refer to the umi_tools.sh file for the code corresponding to the example data. D
 
 ### [2] Removing duplicates ###
 ```
-# The code is adapted from https://blog.csdn.net/weixin_41869644/article/details/86591953
-# The code identifies the last 29 characters of lines starting with ">" as identifiers for recognition and deduplication.
+# RemoveDuplicates.pl is adapted from https://blog.csdn.net/weixin_41869644/article/details/86591953
+# RemoveDuplicates.pl identifies the last 29 characters of lines starting with ">" as identifiers for recognition and deduplication.
 perl RemoveDuplicates.pl -i /path/to/sample_R1_extracted.fq.gz -o R1_extracted_duplicate.fq
 perl RemoveDuplicates.pl -i /path/to/sample_R2_extracted.fq.gz -o R2_extracted_duplicate.fq
 ```
