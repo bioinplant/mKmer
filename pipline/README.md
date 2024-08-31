@@ -31,7 +31,7 @@ Rscript KmerRank.R --histo 13mer_counts.histo --out /path/to/frequency_rank/
 bash KmerCell/KmerCell.sh --kmercount kmer_counts_dumps.fa --fastq R2_extracted_duplicate.fq --topkmer 10000 --k 13 --output /path/to/out_folder
 ```
 ### [8] Dimensionality reduction, clustering and finding marker K-mers ###
-The routine downstream analysis of single cells is performed by seurat.
+The routine downstream analysis of single cells is performed by seurat(v4).
 ### [9] Functional analysis ###
 #[9.1] KmerGOn 
 ```
