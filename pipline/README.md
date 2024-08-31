@@ -6,11 +6,13 @@ Refer to the umi_tools.sh file for the code corresponding to the example data. D
 ### [2] Removing duplicates ###
 ```
 # The code is adapted from https://blog.csdn.net/weixin_41869644/article/details/86591953
+# The code identifies the last 29 characters of lines starting with ">" as identifiers for recognition and deduplication.
 perl RemoveDuplicates.pl -i /path/to/sample_R1_extracted.fq.gz -o R1_extracted_duplicate.fq
 perl RemoveDuplicates.pl -i /path/to/sample_R2_extracted.fq.gz -o R2_extracted_duplicate.fq
 ```
-### [3] Annotating species (The output folder needs to contain the smAnnotation.sh file) ###
+### [3] Annotating species ###
 ```
+# The output folder needs to contain the smAnnotation.sh file
 bash smAnnotation.sh --input /path/to/R2_extracted_duplicate.fq --db /path/to/kraken2_standard_db/kraken_ncbi_refseq_db_202309 --K2Rtool /path/to/kraken2_standard_db/kraken2-report/kraken2-report
 ```
 ### [4] Counting of k-mers by jellyfish ###
@@ -23,8 +25,9 @@ Rscript KmerFrequency.R --input 11mer_counts.histo,12mer_counts.histo,13mer_coun
 ```
 Rscript KmerRank.R --histo 13mer_counts.histo --out /path/to/frequency_rank/
 ```
-### [7] Generating the kmer/cell matrix (kmercount file need to be named "kmer_counts_dumps.fa") ###
+### [7] Generating the kmer/cell matrix ###
 ```
+# kmercount file need to be named "kmer_counts_dumps.fa"
 bash KmerCell/KmerCell.sh --kmercount kmer_counts_dumps.fa --fastq R2_extracted_duplicate.fq --topkmer 10000 --k 13 --output /path/to/out_folder
 ```
 ### [8] The routine downstream analysis of single cells, such as dimensionality reduction, clustering and finding marker K-mers, is performed by seurat. ###
