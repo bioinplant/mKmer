@@ -38,7 +38,7 @@ Rscript KmerFrequency.R --input 11mer_counts.histo,12mer_counts.histo,13mer_coun
 #[5] Choosing the number of HCKs (topkmer)
 Rscript KmerRank.R --histo 13mer_counts.histo --out /path/to/frequency_rank/
 
-#[6] Generating the kmer/cell matrix
+#[6] Generating the kmer/cell matrix (kmercount file need to be named "kmer_counts_dumps.fa")
 bash KmerCell/KmerCell.sh --kmercount kmer_counts_dumps.fa --fastq R2_extracted_duplicate.fq --topkmer 10000 --k 13 --output /path/to/out_folder
 
 #[5]  The routine downstream analysis of single cells, such as dimensionality reduction, clustering and finding marker K-mers, is performed by seurat.
