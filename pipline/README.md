@@ -33,11 +33,12 @@ bash KmerCell/KmerCell.sh --kmercount kmer_counts_dumps.fa --fastq R2_extracted_
 ### [8] Dimensionality reduction, clustering and finding marker K-mers ###
 The routine downstream analysis of single cells is performed by seurat(v4).
 ### [9] Functional analysis ###
-#[9.1] KmerGOn 
+
 ```
+# KmerGOn 
 bash KmerGOn/KmerGOn.sh --cluster 0 --input markerkmer.txt --out /path/to/out_folder/ --db /path/to/MEME/gomo_databases
 ```
-#[9.2] KmerGOp
 ```
+# KmerGOp
 bash KmerGOp/KmerGOp.sh --cluster 0 --markerkmer markerkmer.txt --out /path/to/out_folder/ --interproscan /path/to/interproscan-5.47-82.0/interproscan.sh
 ```
