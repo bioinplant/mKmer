@@ -4,6 +4,7 @@ The sample data is from SAMC3766839 of PRJCA017256 (https://ngdc.cncb.ac.cn/biop
 
 ### [1] High quality cells are filtered by umi_tools ###
 Refer to the umi_tools.sh file for the code corresponding to the example data. Different data sources may need different parameters, you may refer to specific changes umi_tools official website (https://github.com/CGATOxford/UMI-tools).
+![d2](https://github.com/user-attachments/assets/cdcc0b26-5bc3-462e-8a2c-07e06783c05f)
 
 ### [2] Removing duplicates ###
 ```
