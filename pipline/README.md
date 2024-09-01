@@ -1,6 +1,6 @@
 # mKmer_pipline
 
-The sample data is from SAMC3766839 of PRJCA017256
+The sample data is from SAMC3766839 of PRJCA017256 (https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA017256).
 
 ### [1] High quality cells are filtered by umi_tools ###
 Refer to the umi_tools.sh file for the code corresponding to the example data. Different data sources may need different parameters, you may refer to specific changes umi_tools official website (https://github.com/CGATOxford/UMI-tools).
