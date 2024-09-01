@@ -41,6 +41,14 @@ bash KmerCell/KmerCell.sh --kmercount kmer_counts_dumps.fa --fastq R2_extracted_
 ```
 ### [8] Dimensionality reduction, clustering and finding marker K-mers ###
 The routine downstream analysis of single cells is performed by seurat(v4).
+```
+#Some of the parameters used in this sample
+#min.cells and min.features do not need to set values. After species mapping, only species with purity > 50% are retained. Remove strains with fewer than 10 species.
+normalization.method = "LogNormalize", scale.factor = 10000
+selection.method = "vst", nfeatures = 6000
+dims = 1:30, resolution = 0.5
+only.pos = TRUE, test.use = 'MAST', min.pct = 0.25, logfc.threshold = 0.25
+```
 ![figure1-e](https://github.com/user-attachments/assets/cb7fa0c2-33ff-454e-bcd7-5e614188e6bd)
 
 ### [9] Functional analysis ###
