@@ -110,7 +110,6 @@ done
 rm "$input_dir"/*_bracken.txt
 
 ###################### filter_merge  #########################
-# 创建bracken_merged.report文件
 touch bracken_merged_S.report
 # 设置输入目录
 input_dir="$script_dir/bracken_S"
@@ -147,7 +146,6 @@ done
 rm "$input_dir"/*_bracken.txt
 
 ###################### filter_merge  #########################
-# 创建bracken_merged.report文件
 touch bracken_merged_G.report
 # 设置输入目录
 input_dir="$script_dir/bracken_G"
@@ -180,8 +178,8 @@ NR==FNR {g_fraction[$1]=$8; next}
         print $0, "NA"
     }
 }
-' bracken_merged_G_sed.report bracken_merged_S_no_fraction.report > bracken_merged.report
+' bracken_merged_G_sed.report bracken_merged_S_no_fraction.report > smAnnotation.report
 
-rm bracken_merged_S_no_fraction.report bracken_merged_S.report bracken_merged_G.report ncbi_kraken2.report ncbi_kraken2.output
+rm bracken_merged_S_no_fraction.report bracken_merged_S.report bracken_merged_G.report ncbi_kraken2.report ncbi_kraken2.output bracken_merged_G_sed.report bracken_merged_S_sed.report
 rm -r bracken_S bracken_G output report
 
