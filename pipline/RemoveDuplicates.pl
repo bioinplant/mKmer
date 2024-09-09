@@ -1,5 +1,4 @@
 #!/usr/bin/perl
-#!/usr/bin/perl
 use warnings;
 use Getopt::Long;
 
