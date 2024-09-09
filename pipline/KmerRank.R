@@ -59,4 +59,4 @@ pic <- ggplot(kmer, aes(x = V3, y = V1)) +
         axis.text = element_text(size = 25, colour = "black")) + 
   annotate("text", x = knee_point$V3, y = 5, label = paste0("x=", knee_point$V3), color = "#FF9999", vjust = 1.5, hjust = -0.2, size = 12, family = "Times New Roman")
 
-ggsave(paste0(out_path, "KmersRank.png"), plot = pic, width = 12, height = 12, units = "in", dpi = 500, bg = "white")
+ggsave(paste0(out_path, "KmersRank.png"), plot = pic, width = 12, height = 12, units = "in", dpi = 300, bg = "white")
