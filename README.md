@@ -65,7 +65,7 @@ conda install -c bioconda meme=5.0.5
 Sincerely thanks to the contributors of packages such as umi_tools, jellyfish, anndata, seqkit, kraken2, bracken, Matrix, reticulate, optparse, ggplot2, ggseqlogo, patchwork, tidyverse, ggbump, BiocManager, universalmotif, memes, GO.db, meme etc.    
 
 ## Usage
-The sample data is from SAMC3766839 of PRJCA017256 (https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA017256).The analysis results of the sample data can be found in the readme file in the pipline folder.
+The sample data is from SAMC3766839 of PRJCA017256 (https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA017256). The analysis results of the sample data can be found in the readme file in the pipline folder.
 
 #### [1] High quality cells are filtered by umi_tools ###
 Refer to the umi_tools.sh file for the code corresponding to the example data. Different data sources may need different parameters, you may refer to specific changes umi_tools official website (https://github.com/CGATOxford/UMI-tools).
