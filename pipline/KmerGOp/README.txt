@@ -1,5 +1,4 @@
-#### tomtom.R
-
+# tomtom.R
 ### 'runTomTom' function you need to specify the database (https://meme-suite.org/meme/meme-software/Databases/motifs/motif_databases.12.24.tgz) and 'meme suit' tools
 
 ## The 'meme' file needs to be copied from the downloaded motif database to (e.g. Motif_databases/PROTEIN/prosite2021_04. Meme) mKmer virtual environment extdata folder (/path/to/anaconda3/envs/mKmer/lib/R/library/memes/extdata/)
