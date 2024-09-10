@@ -6,7 +6,6 @@ library(dplyr)
 library(AnnotationDbi)
 library(data.table)
 
-# 创建参数解析器
 option_list <- list(
   make_option(c("-t", "--tsv"), type = "character", help = "Path to TSV file", metavar = "character"),
   make_option(c("-c", "--cluster"), type = "integer", help = "Cluster number", metavar = "integer"),
@@ -15,11 +14,7 @@ option_list <- list(
 )
 
 parser <- OptionParser(option_list = option_list)
-
-# 解析命令行参数
 opt <- parse_args(parser)
-
-# 提取参数值
 tsv_path <- opt$tsv
 cluster_num <- opt$cluster
 out_path <- opt$out
@@ -42,7 +37,6 @@ AAseq <- df
 
 go_ids <- unique(AAseq$V14)
 go_info <- AnnotationDbi::select(GO.db, keys = go_ids, columns = c("GOID", "TERM", "ONTOLOGY", "DEFINITION"), keytype = "GOID")
-
 go_rich <- left_join(AAseq, go_info, by = c("V14" = "GOID"), relationship = "many-to-many")
 go_rich <- go_rich[!is.na(go_rich$ONTOLOGY), ]
 
@@ -62,8 +56,8 @@ plot_df$Count <- as.numeric(plot_df$Count)
 plot_df$ONTOLOGY <- factor(plot_df$ONTOLOGY, levels = c("MF", "CC", "BP"))
 plot_df <- plot_df[order(plot_df$ONTOLOGY, plot_df$Count, plot_df$Description), ]
 plot_df$Description <- factor(plot_df$Description, levels = plot_df$Description)
-
 COLS <- c("#FD8D62", "#8DA1CB", "#66C3A5")
+
 a <- ggplot(data = plot_df, aes(x = Description, y = Count, fill = ONTOLOGY)) +
   geom_bar(stat = "identity", width = 0.8) +
   coord_flip() +
@@ -73,8 +67,8 @@ a <- ggplot(data = plot_df, aes(x = Description, y = Count, fill = ONTOLOGY)) +
   scale_y_continuous(breaks = seq(0, max(plot_df$Count), by = 5), expand = c(0, 0)) +
   theme_bw() +
   #labs(title = paste0("Cluster", cluster_num)) +
-  theme(panel.grid.major.x = element_line(color = "grey90", size = 0.5),  # 主要 x 轴网格线
-        panel.grid.minor.x = element_blank())  # 隐藏 x 轴的次要网格线
+  theme(panel.grid.major.x = element_line(color = "grey90", size = 0.5),
+        panel.grid.minor.x = element_blank())
 
 plot_out <- file.path(out_path, paste0("cluster", cluster_num, ".png"))
-ggsave(a, file = plot_out, width = 9.03, height = 5.74, dpi = 500)
+ggsave(a, file = plot_out, width = 9.03, height = 5.74, dpi = 300)
