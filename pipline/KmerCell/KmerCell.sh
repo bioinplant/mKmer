@@ -27,10 +27,6 @@ if [[ -z "$kmercount" || -z "$fastq" || -z "$topkmer" || -z "$k" || -z "$output_
     exit 1
 fi
 
-# Execute Python command
 python "$(dirname "$0")/Kmercell.py" --kmercount "$kmercount" --fastq "$fastq" --topkmer "$topkmer" --k "$k" --output "$output_folder"/
-
-# Execute R command
 Rscript "$(dirname "$0")/Kmercell.R" --folder "$output_folder"
-
 find . -maxdepth 1 -name "*.h5ad" -exec rm -- {} +
