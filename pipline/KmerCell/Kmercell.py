@@ -125,7 +125,6 @@ def main(args):
         adata.write(re_path)
         count += 1000
 
-    # 删除cell-fastq-txts文件夹
     shutil.rmtree(output_txt_folder)
 
 if __name__ == "__main__":
