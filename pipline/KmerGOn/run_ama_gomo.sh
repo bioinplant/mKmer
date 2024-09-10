@@ -1,12 +1,11 @@
 #!/bin/bash
 export RANDOM_SEED=12345
-# 检查是否提供了必要的参数
+
 if [ "$#" -ne 4 ]; then
     echo "Usage: $0 --input <input_meme_file> --db <database_directory>"
     exit 1
 fi
 
-# 解析命令行参数
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --input) input_meme_file="$2"; shift ;;
@@ -16,7 +15,6 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-# 检查是否所有参数都已提供
 if [[ -z "$input_meme_file" || -z "$db_dir" ]]; then
     echo "Usage: $0 --input <input_meme_file> --db <database_directory>"
     exit 1
@@ -24,21 +22,12 @@ fi
 
 source /public/home/mofy/anaconda3/etc/profile.d/conda.sh
 conda activate meme
-
-# 提取文件名和路径
 input_dir=$(dirname "$input_meme_file")
 input_file=$(basename "$input_meme_file")
-
-# 设置工作目录
 cd "$input_dir"
-
-# 运行 AMA 命令
 ama --o ama1_out --pvalues --verbosity 1 "$input_file" "$db_dir/bacteria_escherichia_coli_ctf073_1000_199.na" "$db_dir/bacteria_escherichia_coli_ctf073_1000_199.na.bfile"
 ama --o ama2_out --pvalues --verbosity 1 "$input_file" "$db_dir/bacteria_escherichia_coli_k12_1000_199.na" "$db_dir/bacteria_escherichia_coli_k12_1000_199.na.bfile"
 ama --o ama3_out --pvalues --verbosity 1 "$input_file" "$db_dir/bacteria_salmonella_enterica_typhi_ty2_1000_199.na" "$db_dir/bacteria_salmonella_enterica_typhi_ty2_1000_199.na.bfile"
 ama --o ama4_out --pvalues --verbosity 1 "$input_file" "$db_dir/bacteria_yersinia_pestis_co92_1000_199.na" "$db_dir/bacteria_yersinia_pestis_co92_1000_199.na.bfile"
-
-# 运行 GOMO 命令
 gomo --nostatus --verbosity 1 --t 0.05 --shuffle_scores 1000 --dag "$db_dir/go.dag" --oc gomo_out \
 --motifs "$input_file" "$db_dir/bacteria_escherichia_coli_k12_1000_199.na.csv" ama1_out/ama.xml ama2_out/ama.xml ama3_out/ama.xml ama4_out/ama.xml
-
