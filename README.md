@@ -17,6 +17,7 @@ For mKmer (v.1.0.0), Anaconda3-2023.07-2-Linux-x86_64, R (v4.3.2) and Python (v3
 #### [2024-08-30] mKmer's "pipline" folder has been uploaded for the first time ####
 For mKmer, refer to the README file in the "pipline" folder. Each step can be used individually.
 
+## Installation
 #### [2024-08-31] Complete installation (The versions may not be exactly the same.) ####
 ```
 # Please install conda first
@@ -62,5 +63,11 @@ conda install -c bioconda meme=5.0.5
 ```
 
 Sincerely thanks to the contributors of packages such as umi_tools, jellyfish, anndata, seqkit, kraken2, bracken, Matrix, reticulate, optparse, ggplot2, ggseqlogo, patchwork, tidyverse, ggbump, BiocManager, universalmotif, memes, GO.db, meme etc.    
+
+## Usage
+
+
+
+
 
 If you have some questions, please send email to mofangyu@zju.edu.cn.    
