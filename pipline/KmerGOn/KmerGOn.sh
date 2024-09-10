@@ -1,5 +1,5 @@
 #!/bin/bash
-# 解析命令行参数
+
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --cluster) cluster="$2"; shift ;;
@@ -29,5 +29,3 @@ Rscript "$script_dir/GO_Annotations.R" --cluster "$cluster" --out "$out_path" --
 ########################## rm ################################
 rm -r ama1_out ama2_out ama3_out ama4_out "$out_path/gomo_out"
 rm "$out_path/cluster${cluster}.meme" "$out_path/cluster${cluster}.txt"
-
-
