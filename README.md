@@ -25,6 +25,7 @@ It is recommended to work directly from the git repository and create a new cond
 ```
 $ git clone  git@github.com:bioinplant/mKmer.git
 $ python setup.py
+# If some R packages fails to download, install it manually on the R console
 ```
 ```
 # MEME suite
