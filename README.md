@@ -24,6 +24,7 @@ The installation of various packages depends on the conda.
 It is recommended to work directly from the git repository and create a new conda environment to use mKmer:
 ```
 $ git clone https://github.com/bioinplant/mKmer.git
+$ cd mKmer
 $ python setup.py  #If some R packages fails to download, install it manually on the R console
 ```
 ```
