@@ -19,7 +19,7 @@ For mKmer, refer to the README file in the "pipline" folder. Each step can be us
 
 ## Installation
 #### [2024-08-31] Complete installation (The versions may not be exactly the same.) ####
-Please install Anaconda first.
+The installation of various packages depends on the conda.
 
 It is recommended to work directly from the git repository and create a new conda environment to use mKmer:
 ```
