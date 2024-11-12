@@ -22,20 +22,19 @@ For mKmer, refer to the README file in the "pipline" folder. Each step can be us
 ```
 # Please install conda first
 # We recommend creating a new conda environment to use mKmer
-python setup_R.py
-```
-```
-# R console
-install.packages("BiocManager")
-BiocManager::install("universalmotif")
-BiocManager::install("memes")
-BiocManager::install("GO.db")
+$ git clone  git@github.com:bioinplant/mKmer.git
+$ python setup_R.py
+$ R
+  > install.packages("BiocManager")
+  > BiocManager::install("universalmotif")
+  > BiocManager::install("memes")
+  > BiocManager::install("GO.db")
 ```
 ```
 # MEME suite
-conda create -n meme
-conda activate meme
-conda install -c bioconda meme=5.0.5
+$ conda create -n meme
+$ conda activate meme
+$ conda install -c bioconda meme=5.0.5
 ```
 Sincerely thanks to the contributors of packages such as umi_tools, jellyfish, anndata, seqkit, kraken2, bracken, Matrix, reticulate, optparse, ggplot2, ggseqlogo, patchwork, tidyverse, ggbump, BiocManager, universalmotif, memes, GO.db, meme etc.    
 
