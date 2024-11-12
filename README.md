@@ -19,9 +19,9 @@ For mKmer, refer to the README file in the "pipline" folder. Each step can be us
 
 ## Installation
 #### [2024-08-31] Complete installation (The versions may not be exactly the same.) ####
+Please install conda first.
+It is recommended to work directly from the git repository and create a new conda environment to use mKmer:
 ```
-# Please install conda first
-# We recommend creating a new conda environment to use mKmer
 $ git clone  git@github.com:bioinplant/mKmer.git
 $ python setup.py
 ```
