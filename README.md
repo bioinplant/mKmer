@@ -45,31 +45,31 @@ Refer to the umi_tools.sh file for the code corresponding to the example data. D
 ```
 # RemoveDuplicates.pl is adapted from https://blog.csdn.net/weixin_41869644/article/details/86591953
 # RemoveDuplicates.pl identifies the last 29 characters of lines starting with ">" as identifiers for recognition and deduplication.
-perl RemoveDuplicates.pl -i /path/to/sample_R1_extracted.fq.gz -o R1_extracted_duplicate.fq
-perl RemoveDuplicates.pl -i /path/to/sample_R2_extracted.fq.gz -o R2_extracted_duplicate.fq
+perl /path/to/RemoveDuplicates.pl -i /path/to/sample_R1_extracted.fq.gz -o R1_extracted_duplicate.fq
+perl /path/to/RemoveDuplicates.pl -i /path/to/sample_R2_extracted.fq.gz -o R2_extracted_duplicate.fq
 ```
 #### [3] Annotating species ###
 ```
 # The output folder needs to contain the smAnnotation.sh file
-bash smAnnotation.sh --input /path/to/R2_extracted_duplicate.fq --db /path/to/kraken2_standard_db/kraken_ncbi_refseq_db_202309 --K2Rtool /path/to/kraken2_standard_db/kraken2-report/kraken2-report
+bash /path/to/smAnnotation.sh --input /path/to/R2_extracted_duplicate.fq --db /path/to/kraken2_standard_db/kraken_ncbi_refseq_db_202309 --K2Rtool /path/to/kraken2_standard_db/kraken2-report/kraken2-report
 ```
 
 #### [4] Counting of k-mers by jellyfish ###
 Refer to the jellyfish.sh file for the code corresponding to the example data. Different data sources may need different parameters, you may refer to specific changes jellyfish official website (https://github.com/gmarcais/Jellyfish).
 #### [5] Choosing the number of k ###
 ```
-Rscript KmerFrequency.R --input 11mer_counts.histo,12mer_counts.histo,13mer_counts.histo --out /path/to/frequency_rank/
+Rscript /path/to/KmerFrequency.R --input 11mer_counts.histo,12mer_counts.histo,13mer_counts.histo --out /path/to/frequency_rank/
 ```
 
 #### [6] Choosing the number of HCKs (topkmer) ###
 ```
-Rscript KmerRank.R --histo 13mer_counts.histo --out /path/to/frequency_rank/
+Rscript /path/to/KmerRank.R --histo 13mer_counts.histo --out /path/to/frequency_rank/
 ```
 
 #### [7] Generating the kmer/cell matrix ###
 ```
 # kmercount file need to be named "kmer_counts_dumps.fa"
-bash KmerCell/KmerCell.sh --kmercount kmer_counts_dumps.fa --fastq R2_extracted_duplicate.fq --topkmer 10000 --k 13 --output /path/to/out_folder
+bash /path/to/KmerCell.sh --kmercount kmer_counts_dumps.fa --fastq R2_extracted_duplicate.fq --topkmer 10000 --k 13 --output /path/to/out_folder
 ```
 #### [8] Dimensionality reduction, clustering and finding marker K-mers ###
 The routine downstream analysis of single cells is performed by seurat(v4).
@@ -85,11 +85,11 @@ only.pos = TRUE, test.use = 'MAST', min.pct = 0.25, logfc.threshold = 0.25
 #### [9] Functional analysis ###
 ```
 # KmerGOn 
-bash KmerGOn/KmerGOn.sh --cluster 0 --input markerkmer.txt --out /path/to/out_folder/ --db /path/to/MEME/gomo_databases
+bash /path/to/KmerGOn.sh --cluster 0 --input markerkmer.txt --out /path/to/out_folder/ --db /path/to/MEME/gomo_databases
 ```
 ```
 # KmerGOp
-bash KmerGOp/KmerGOp.sh --cluster 0 --markerkmer markerkmer.txt --out /path/to/out_folder/ --interproscan /path/to/interproscan-5.47-82.0/interproscan.sh
+bash /path/to/KmerGOp.sh --cluster 0 --markerkmer markerkmer.txt --out /path/to/out_folder/ --interproscan /path/to/interproscan-5.47-82.0/interproscan.sh
 ```
 
 If you have some questions, please send email to mofangyu@zju.edu.cn.    
