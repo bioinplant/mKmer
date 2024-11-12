@@ -23,12 +23,7 @@ For mKmer, refer to the README file in the "pipline" folder. Each step can be us
 # Please install conda first
 # We recommend creating a new conda environment to use mKmer
 $ git clone  git@github.com:bioinplant/mKmer.git
-$ python setup_R.py
-$ R
-  > install.packages("BiocManager")
-  > BiocManager::install("universalmotif")
-  > BiocManager::install("memes")
-  > BiocManager::install("GO.db")
+$ python setup.py
 ```
 ```
 # MEME suite
