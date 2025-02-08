@@ -23,13 +23,8 @@ It is recommended to work directly from the git repository and create a new cond
 ```
 $ git clone https://github.com/bioinplant/mKmer.git
 $ cd mKmer
-$ python setup.py  #If some R packages fails to download, install it manually on the R console
-```
-```
-# MEME suite
-$ conda create -n meme
-$ conda activate meme
-$ conda install -c bioconda meme=5.0.5
+$ python setup.py sdist  #If some R packages fails to download, install it manually on the R console
+$ pip install dist/mkmer-1.0.0.tar.gz
 ```
 Sincerely thanks to the contributors of packages such as umi_tools, jellyfish, anndata, seqkit, kraken2, bracken, Matrix, reticulate, optparse, ggplot2, ggseqlogo, patchwork, tidyverse, ggbump, BiocManager, universalmotif, memes, GO.db, meme etc.    
 
@@ -43,29 +38,29 @@ Refer to the umi_tools.sh file for the code corresponding to the example data. D
 ```
 # RemoveDuplicates.pl is adapted from https://blog.csdn.net/weixin_41869644/article/details/86591953
 # RemoveDuplicates.pl identifies the last 29 characters of lines starting with ">" as identifiers for recognition and deduplication.
-python RemoveDuplicates.py --input R2_extracted.fq.gz --output R2_extracted_duplicate.fq
+mKmer RemoveDuplicates --input R2_extracted.fq.gz --output R2_extracted_duplicate.fq
 ```
 #### [3] Annotating species ###
 ```
-python smAnnotation.py --input R2_extracted_duplicate.fq --db /path/to/kracken2_db/ncbi_standard_8 --output smAnnotation --K2Rtool /path/to/kraken2-report/kraken2-report
+mKmer smAnnotation --input R2_extracted_duplicate.fq --db /path/to/kracken2_db/ncbi_standard_8 --output smAnnotation --K2Rtool /path/to/kraken2-report/kraken2-report
 ```
 
 #### [4] Counting of k-mers by jellyfish ###
 Refer to the jellyfish.sh file for the code corresponding to the example data. Different data sources may need different parameters, you may refer to specific changes jellyfish official website (https://github.com/gmarcais/Jellyfish).
 #### [5] Choosing the number of k ###
 ```
-python KmerFrequency.py  --input 11mer_counts.histo 12mer_counts.histo 13mer_counts.histo --output frequency_rank
+mKmer KmerFrequency  --input 11mer_counts.histo 12mer_counts.histo 13mer_counts.histo --output frequency_rank
 ```
 
 #### [6] Choosing the number of HCKs (topkmer) ###
 ```
-python KmerRank.py --input 13mer_counts.histo --output frequency_rank
+mKmer KmerRank --input 13mer_counts.histo --output frequency_rank
 ```
 
 #### [7] Generating the cell-by-Kmer matrix ###
 ```
 # kmercount file need to be named "kmer_counts_dumps.fa"
-python KmerCell.py --fasta kmer_counts_dumps.fa --fastq R2_extracted_duplicate.fq --topkmer 1 --bestK 1 --output matrix
+mKmer KmerCell --fasta kmer_counts_dumps.fa --fastq R2_extracted_duplicate.fq --topkmer 1 --bestK 1 --output matrix
 ```
 #### [8] Dimensionality reduction, clustering and finding marker K-mers ###
 The routine downstream analysis of single cells is performed by seurat(v4).
@@ -81,11 +76,11 @@ only.pos = TRUE, test.use = 'MAST', min.pct = 0.25, logfc.threshold = 0.25
 #### [9] Functional analysis ###
 ```
 # KmerGOn 
-python KmerGOn.py --cluster 0 --input markerkmer.txt --output KmerGOn --db /path/to/gomo_databases
+mKmer KmerGOn --cluster 0 --input markerkmer.txt --output KmerGOn --db /path/to/gomo_databases
 ```
 ```
 # KmerGOp
-python KmerGOp.py --cluster 0 --input markerkmer.txt --output KmerGOp --interproscan /path/to/interproscan-5.47-82.0/interproscan.sh
+mKmer KmerGOp --cluster 0 --input markerkmer.txt --output KmerGOp --interproscan /path/to/interproscan-5.47-82.0/interproscan.sh
 ```
 
 If you have some questions, please send email to mofangyu@zju.edu.cn.    
