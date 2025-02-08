@@ -26,8 +26,12 @@ $ cd mKmer
 $ python setup.py sdist  
 $ python setup.py install
 # If some R packages fails to download, install it manually on the R console
-
-
+# suggest version: BiocManager 1.30.25, universalmotif 1.20.0, memes 1.10.0, GO.db 3.18.0
+$ R
+> install.packages('BiocManager')
+> BiocManager::install('universalmotif')
+> BiocManager::install('memes')
+> BiocManager::install('GO.db')
 $ pip install dist/mkmer-1.0.0.tar.gz
 ```
 Sincerely thanks to the contributors of packages such as umi_tools, jellyfish, anndata, seqkit, kraken2, bracken, Matrix, reticulate, optparse, ggplot2, ggseqlogo, patchwork, tidyverse, ggbump, BiocManager, universalmotif, memes, GO.db, meme etc.    
