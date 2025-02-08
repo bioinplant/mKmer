@@ -23,7 +23,11 @@ It is recommended to work directly from the git repository and create a new cond
 ```
 $ git clone https://github.com/bioinplant/mKmer.git
 $ cd mKmer
-$ python setup.py sdist  #If some R packages fails to download, install it manually on the R console
+$ python setup.py sdist  
+$ python setup.py install
+# If some R packages fails to download, install it manually on the R console
+
+
 $ pip install dist/mkmer-1.0.0.tar.gz
 ```
 Sincerely thanks to the contributors of packages such as umi_tools, jellyfish, anndata, seqkit, kraken2, bracken, Matrix, reticulate, optparse, ggplot2, ggseqlogo, patchwork, tidyverse, ggbump, BiocManager, universalmotif, memes, GO.db, meme etc.    
