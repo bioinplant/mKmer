@@ -78,12 +78,19 @@ for (file_path in h5ad_files) {
     file.remove(file_path)
 }
 
+# Get the folder path of the last processed file (if there are files to process)
+if (length(h5ad_files) > 0) {
+    folder_path <- dirname(h5ad_files[length(h5ad_files)])
+} else {
+    folder_path <- opt$folder
+}
+
 # Save merged matrix
 if (!is.null(merged_matrix)) {
-    saveRDS(merged_matrix, file = "kmer_matrix.rds")
+    saveRDS(merged_matrix, file = file.path(folder_path, "kmer_matrix.rds"))
     message("\nSuccessfully processed ", length(h5ad_files), " files.")
     message("Merged matrix dimensions: ", paste(dim(merged_matrix), collapse = " x "))
-    message("Output saved to: kmer_matrix.rds")
+    message("Output saved to: ", file.path(folder_path, "kmer_matrix.rds"))
 } else {
     warning("No valid data was processed. Output file not created.")
 }
