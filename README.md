@@ -25,7 +25,8 @@ $ git clone https://github.com/bioinplant/mKmer.git
 $ cd mKmer
 $ python setup_conda.py
 ```
-If some R packages fails to download, install it manually on the R console. (suggest version: BiocManager 1.30.25, universalmotif 1.20.0, memes 1.10.0, GO.db 3.18.0)
+If some R packages fails to download, install it manually on the R console. 
+(suggest version: BiocManager 1.30.25, universalmotif 1.20.0, memes 1.10.0, GO.db 3.18.0)
 ```
 $ R
 > install.packages('BiocManager')
