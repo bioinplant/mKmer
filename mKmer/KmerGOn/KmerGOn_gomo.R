@@ -110,4 +110,4 @@ enrich_plot <- ggplot(plot_df, aes(x = Description, y = Count, fill = ONTOLOGY))
 
 # Save plot
 plot_out <- file.path(out_folder, paste0("cluster", cluster_num, ".png"))
-ggsave(enrich_plot, file = plot_out, width = 9.03, height = 5.74, dpi = 500)
+ggsave(enrich_plot, file = plot_out, width = 9.03, height = 5.74, dpi = 300)
