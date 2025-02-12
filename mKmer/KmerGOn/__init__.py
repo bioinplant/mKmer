@@ -1,1 +1,0 @@
-from .KmerGOn import main
