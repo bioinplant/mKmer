@@ -54,7 +54,6 @@ mKmer RemoveDuplicates --input R2_extracted.fq.gz --output R2_extracted_duplicat
 ```
 #### [3] Annotating species ###
 ```
-chmod +x ./mKmer/smAnnotation/kraken2-report/kraken2-report
 mKmer smAnnotation --input R2_extracted_duplicate.fq --db /path/to/kracken2_db/ncbi_standard_8 --output smAnnotation --K2Rtool ./mKmer/smAnnotation/kraken2-report/kraken2-report
 ```
 
