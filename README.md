@@ -21,6 +21,7 @@ The installation of various packages depends on the conda.
 
 It is recommended to work directly from the git repository and create a new conda environment to use mKmer:
 ```
+$ conda create -n mKmer python=3.8.20
 $ git clone git@github.com:bioinplant/mKmer.git
 $ cd mKmer
 $ python setup_conda.py
