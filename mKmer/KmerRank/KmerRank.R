@@ -1,4 +1,3 @@
-# Set random seed for reproducibility
 set.seed(42)
 
 # Load necessary libraries
@@ -68,6 +67,14 @@ find_knee_point <- function(kmer) {
 knee_point_index <- find_knee_point(kmer)
 knee_point <- kmer[knee_point_index, ]
 kmer$color <- ifelse(kmer$V3 <= knee_point$V3, "darkblue", "lightgray")
+
+# ====================== save knee_value ======================
+knee_value <- knee_point$V3
+write.table(knee_value, 
+            file = paste0(out_path, "KmersRank.txt"), 
+            row.names = FALSE, 
+            col.names = FALSE, 
+            quote = FALSE)
 
 # Create the plot
 pic <- ggplot(kmer, aes(x = V3, y = V1, color = color)) +
